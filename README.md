@@ -1,19 +1,27 @@
-# Getting Started with Create React App
+![](https://img.shields.io/badge/Microverse-blueviolet)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Book Store
+MVP website That allow user to
+- Display a list of books.
+- Add a book.
+- Remove a selected book.
 
-## Available Scripts
+## Live demo
+will be added later 
 
-In the project directory, you can run:
 
-### `npm start`
+### Getting started
+To get a local copy up and running follow these simple steps.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- You can clone this repo by typing `git clone https://github.com/AlaaAlsalem/bookstore` on your terminal.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Type `cd Book_store` to access the project on the terminal.
+  
+- Run `npm install` from your editor's terminal.
 
+- Run `npm start` from your editor's terminal to run the app in the development mode.
+
+- Run `npm run build` to build the app for production.
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\
