@@ -1,6 +1,6 @@
 const catigories = () => (
   <div>
-    <h1>it is empty now</h1>
+    <button type="button">check status</button>
   </div>
 );
 export default catigories;
