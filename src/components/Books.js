@@ -1,8 +1,25 @@
-const Books = () => (
-  <div>
-    <h1> this is books</h1>
-    <section className="book_list" />
-  </div>
+import PropTypes from 'prop-types';
+
+const Book = ({ books, propsToRemoveBooks }) => (
+  <ul>
+    {books.map((book) => (
+      <li key={book.id}>
+        <span>{book.title}</span>
+        <br />
+        <span>by</span>
+        <br />
+        <span>{book.author}</span>
+        <br />
+        <button type="button" onClick={() => propsToRemoveBooks(book.id)}>Remove</button>
+      </li>
+    ))}
+    ;
+  </ul>
 );
 
-export default Books;
+Book.propTypes = {
+  books: PropTypes.instanceOf(Array).isRequired,
+  propsToRemoveBooks: PropTypes.func.isRequired,
+};
+
+export default Book;
