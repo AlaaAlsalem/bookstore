@@ -15,7 +15,7 @@ function App() {
           <Route exact path="/">
             <AllBooks />
           </Route>
-          <Route path="/categories">
+          <Route path="/catigorise">
             <Categories />
           </Route>
         </Switch>

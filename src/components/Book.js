@@ -7,7 +7,7 @@ import { deleteBook } from '../redux/books/books';
 const Book = ({ books }) => {
   const dispatch = useDispatch();
   return (
-    <ul>
+    <ul className="book-list">
       {books.map((book) => (
         <li key={uuidv4()}>
           <span>{book.title}</span>

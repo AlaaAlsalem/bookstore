@@ -17,12 +17,13 @@ const AllBooks = () => {
     return (
       <div>
         <Book books={myBooks} />
+        <hr/>
         <BookInput />
       </div>
     );
   }
   return (
-    <div>
+    <div className="no-books">
       <h3>No Books Yet...😔</h3>
       <h3>Please type here 👇 to add your favorite books.</h3>
       <BookInput />
