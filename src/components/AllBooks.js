@@ -17,7 +17,7 @@ const AllBooks = () => {
     return (
       <div>
         <Book books={myBooks} />
-        <hr/>
+        <hr />
         <BookInput />
       </div>
     );
