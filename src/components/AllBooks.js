@@ -2,7 +2,7 @@ import { React, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getBooks } from '../redux/books/books';
 import BookInput from './BookInput';
-import Book from './book';
+import Book from './Book';
 
 const AllBooks = () => {
   const myBooks = useSelector((state) => state.booksReducer);
