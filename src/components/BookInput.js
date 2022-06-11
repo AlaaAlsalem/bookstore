@@ -8,16 +8,22 @@ const categories = ['Choose a Category', 'Action', 'Action and Adventure', 'Dram
 const BookInput = () => {
   const dispatch = useDispatch();
   const [title, setTitle] = useState('');
+  const [author, setAuthor] = useState('');
   const [category, setCategory] = useState(categories[0]);
 
-  const onChange = (e) => {
+  const onBookTitleChange = (e) => {
     setTitle(e.target.value);
+  };
+
+  const onChangeAuthor = (e) => {
+    setAuthor(e.target.value);
   };
 
   const book = {
     item_id: uuidv4(),
     title,
     category,
+    author,
   };
 
   const handleSubmit = (e) => {
@@ -25,6 +31,7 @@ const BookInput = () => {
     if (title && category) {
       dispatch(postBooks(book));
       setTitle('');
+      setAuthor('');
       setCategory(categories[0]);
       e.target.reset();
     }
@@ -40,7 +47,15 @@ const BookInput = () => {
           placeholder="Book Title"
           value={title}
           name="title"
-          onChange={onChange}
+          onChange={onBookTitleChange}
+          required
+        />
+        <input
+          type="text"
+          placeholder="Book Author"
+          value={author}
+          name="title"
+          onChange={onChangeAuthor}
           required
         />
         <select name="category" onChange={(category) => setCategory(category.target.value)}>
