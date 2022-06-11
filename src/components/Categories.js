@@ -1,5 +1,5 @@
 const catigories = () => (
-  <div>
+  <div className="categories">
     <h1>it is empty now</h1>
   </div>
 );
