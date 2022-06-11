@@ -1,7 +1,7 @@
 import { React, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getBooks } from '../redux/books/books';
-import Book from './Book';
+import Book from './Book'
 import BookInput from './BookInput';
 
 const AllBooks = () => {
