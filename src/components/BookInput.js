@@ -1,28 +1,39 @@
 import { React, useState } from 'react';
-import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
+import { postBooks } from '../redux/books/books';
 
-const BookInput = (props) => {
-  const [input, setInput] = useState({
-    title: '',
-    author: '',
-  });
+const categories = ['Choose a Category', 'Action', 'Action and Adventure', 'Drama', 'Mystery', 'Children Books', 'Romance', 'Comedy', 'Finances', 'Accounting', 'Novel', 'Horror', 'Science', 'Health', 'History', 'Business'];
 
-  const onChange = (e) => {
-    setInput({
-      ...input,
-      [e.target.name]: e.target.value,
-    });
+const BookInput = () => {
+  const dispatch = useDispatch();
+  const [title, setTitle] = useState('');
+  const [author, setAuthor] = useState('');
+  const [category, setCategory] = useState(categories[0]);
+
+  const onBookTitleChange = (e) => {
+    setTitle(e.target.value);
   };
-  const { propsToAddBooks } = props;
+
+  const onChangeAuthor = (e) => {
+    setAuthor(e.target.value);
+  };
+
+  const book = {
+    item_id: uuidv4(),
+    title,
+    category,
+    author,
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (input.title.trim() && input.author.trim()) {
-      propsToAddBooks(input.title, input.author);
-      setInput({
-        title: '',
-        author: '',
-      });
+    if (title && category) {
+      dispatch(postBooks(book));
+      setTitle('');
+      setAuthor('');
+      setCategory(categories[0]);
+      e.target.reset();
     }
   };
 
@@ -34,27 +45,28 @@ const BookInput = (props) => {
         <input
           type="text"
           placeholder="Book Title"
-          value={input.title}
+          value={title}
           name="title"
-          onChange={onChange}
+          onChange={onBookTitleChange}
           required
         />
         <input
           type="text"
           placeholder="Book Author"
-          value={input.author}
-          name="author"
-          onChange={onChange}
+          value={author}
+          name="title"
+          onChange={onChangeAuthor}
           required
         />
+        <select name="category" onChange={(category) => setCategory(category.target.value)}>
+          {categories.map((category) => (
+            <option key={category} value={category}>{category}</option>
+          ))}
+        </select>
         <button type="submit" className="submit-btn">Add Book</button>
       </form>
     </section>
   );
-};
-
-BookInput.propTypes = {
-  propsToAddBooks: PropTypes.func.isRequired,
 };
 
 export default BookInput;
